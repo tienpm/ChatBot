@@ -1,0 +1,5 @@
+transformers
+gradio
+fastapi
+uvicorn[standard]
+langchain

@@ -1,0 +1,25 @@
+version: '3.7' # Adjust if you need a different version
+
+services:
+  app:
+    build: ./app # Path to your FastAPI app's Dockerfile
+    ports:
+      - '8000:8000'  # Map external port 8000 to container's 8000
+    # depends_on:
+    #   - elasticsearch
+    # environment:
+    #   - ELASTICSEARCH_URL=http://elasticsearch:9200  # Connection details
+
+  # elasticsearch:
+  #   image: elasticsearch:7.17.3 # Adjust the version as needed
+  #   volumes:
+  #     - esdata:/usr/share/elasticsearch/data  # Persistent data storage
+  #   environment:
+  #     - discovery.type=single-node  # Suitable for development
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # Limit memory usage
+  #   ports:
+  #     - '9200:9200'
+  #     - '9300:9300'
+
+volumes:
+  esdata:
