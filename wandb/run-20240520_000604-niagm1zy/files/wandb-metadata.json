@@ -1,0 +1,110 @@
+{
+    "os": "Linux-6.5.0-28-generic-x86_64-with-glibc2.17",
+    "python": "3.8.18",
+    "heartbeatAt": "2024-05-19T17:06:05.661632",
+    "startedAt": "2024-05-19T17:06:04.682600",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "xa_corpus_20_1.txt"
+    ],
+    "state": "running",
+    "program": "train_tokenizer.py",
+    "codePathLocal": "train_tokenizer.py",
+    "codePath": "train_tokenizer.py",
+    "git": {
+        "remote": "https://github.com/tienpm/ChatBot.git",
+        "commit": "b77c8d97946438e6d70d5e6373f4bbb5c39d850a"
+    },
+    "email": "xuananhbka@gmail.com",
+    "root": "/home/xuananh/work/ChatBot",
+    "host": "nghiaph-server",
+    "username": "xuananh",
+    "executable": "/home/xuananh/anaconda3/envs/code/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3.24875,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.671,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.551,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.283,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.987,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.298,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.292,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.439,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.553,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 3754.0133171081543,
+            "used": 1911.0225524902344
+        }
+    },
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA RTX A5000",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 46.95817565917969
+    }
+}

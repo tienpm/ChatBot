@@ -1,3 +1,5 @@
+from click import group
+import wandb 
 import argparse
 import json
 import logging
@@ -14,6 +16,24 @@ import torch
 from sentencepiece import sentencepiece_model_pb2 as sp_pb2_model
 from tqdm import tqdm
 from transformers import AutoTokenizer, LlamaForCausalLM, LlamaTokenizer
+
+# get date time 
+import datetime
+now = datetime.datetime.now()
+print ("Current date and time : ")
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
+date_time = now.strftime("%m_%d_%H_%M")
+
+
+# # start a new wandb run to track this script
+# wandb.init(
+#     # set the wandb project where this run will be logged
+#     project="finetuning-gemma",
+#     group="train_tokenizer",
+#     job_type="job_train_tokenizer",
+#     name=f"train_tokenizer_{date_time}",
+#     # track hyperparameters and run metadata
+# )
 
 LOGGING_CONFIG = {
     "version": 1,
@@ -93,6 +113,7 @@ def train_tokenizer(
         allow_whitespace_only_pieces=True,
         remove_extra_whitespaces=False,
         normalization_rule_name="nfkc",
+        input_sentence_size = 1000000,
     )
 
 
@@ -183,7 +204,8 @@ if __name__ == "__main__":
             "path": "undertheseanlp/UTS_Text",
             "name": "base",
             "split": "train",
-        },
+        }
+        ,
         {
             "path": "vietgpt/binhvq_news_vi",
             "split": "train",
@@ -206,10 +228,12 @@ if __name__ == "__main__":
     if ".model" not in args.new_tkn:
         tokenizer_fname = "temp" + args.new_tkn + ".model"
         temp_tokenizer_model_path = pre_tokenizer_model_dir / tokenizer_fname
+        print("temp_tokenizer_model_path =", temp_tokenizer_model_path)
     else:
         tokenizer_fname = "temp" + args.new_tkn
         temp_tokenizer_model_path = pre_tokenizer_model_dir / tokenizer_fname
-
+        print("temp_tokenizer_model_path =", temp_tokenizer_model_path)
+        
     train_tokenizer(
         in_text_file=args.dataset_fpath,
         sp_model_name=temp_tokenizer_model_path,
