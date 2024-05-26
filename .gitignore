@@ -167,5 +167,6 @@ wandbn/*
 cache/
 cache/*
 xa_corpus*.txt 
-
+xa/
+xa/*
 
