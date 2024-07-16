@@ -147,6 +147,33 @@ def append_tokens(
     target_tokenizer.save_pretrained(save_directory=new_tokenizer_dir)
 
 
+def finetuneTokenizer(
+    tokenizer_path, sample_loader, data, batch, vocab_size, save_path
+):
+    """
+    Retrain tokenizer from a pretrained tokenizer
+    Args:
+      - tokenizer_path: Huggingface hub path for tokenizer
+      - sample_loader: the data loader
+      - data: the text dataset to train tokenizer
+      - batch: the batch size for training
+      - vocab_size: the vocabulary size
+      - save_path: the path to save the tokenizer
+    """
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+        if tokenizer.is_fast:
+            logger.info(f"Use the fast version pre-trained tokenizer")
+        else:
+            logger.info(f"The tokenizer doesn't have fast version")
+        tokenizer.train_new_from_iterator(
+            sample_loader(data, batch), vocab_size=vocab_size
+        )
+        tokenizer.save_pretrained(save_path)
+    except Exception as e:
+        logger.exception(f"Finetinue Tokenizer from exists got exception: {str(e)}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train new tokenizer script")
     # Positional argument
