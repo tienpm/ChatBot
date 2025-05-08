@@ -1,0 +1,7 @@
+sentencepiece
+transformers
+datasets
+tqdm
+fire
+torch
+underthesea
