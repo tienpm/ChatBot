@@ -1,6 +1,7 @@
 import re
 
 import tokenizers
+from transformers import AutoTokenizer
 from underthesea import word_tokenize
 
 
